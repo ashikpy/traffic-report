@@ -104,8 +104,8 @@ export default function Home() {
             />
             <div className="mt-2">
               <p className="!text-xl font-semibold">Ashik D.</p>
-              <p className="!text-sm">B. Tech. AI&DS</p>
-              <p className="opacity-80 !text-sm">Analysis Script Author</p>
+              <p className="!text-sm font-medium">B. Tech. AI&DS</p>
+              <p className="opacity-80 !text-xs mt-1">Analysis Script Author</p>
             </div>
           </div>
           <div className="flex  gap-4">
@@ -116,8 +116,8 @@ export default function Home() {
             />
             <div className="mt-2">
               <p className="!text-xl font-semibold">Adithi S.</p>
-              <p className="!text-sm">B. Tech. AI&DS</p>
-              <p className="opacity-80 !text-sm">Analysis Report Author</p>
+              <p className="!text-sm font-medium">B. Tech. AI&DS</p>
+              <p className="opacity-80 !text-xs mt-1">Analysis Report Author</p>
             </div>
           </div>
         </div>
