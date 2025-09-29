@@ -1,47 +1,60 @@
-import React from "react";
+import {
+  Bold,
+  BreakLine,
+  Li,
+  Section,
+  SubTitle,
+  Title,
+  UnorderedList,
+  InlineCode,
+} from "./utils/Formatters";
 
-const FutureImplementation: React.FC = () => {
+export default function FutureImplementation() {
   return (
-    <div className="page-container">
-      <h1>Future Implementation</h1>
-      <div className="content">
-        <p>Planned features and roadmap for the Traffic Report system.</p>
-        <div className="roadmap">
-          <h2>Upcoming Features:</h2>
-          <div className="timeline">
-            <div className="timeline-item">
-              <h3>Q1 2026</h3>
-              <ul>
-                <li>AI-powered traffic prediction</li>
-                <li>Machine learning integration</li>
-                <li>Advanced pattern recognition</li>
-              </ul>
-            </div>
-            <div className="timeline-item">
-              <h3>Q2 2026</h3>
-              <ul>
-                <li>Mobile application development</li>
-                <li>Real-time notifications</li>
-                <li>User behavior analytics</li>
-              </ul>
-            </div>
-            <div className="timeline-item">
-              <h3>Q3 2026</h3>
-              <ul>
-                <li>Smart city integration</li>
-                <li>IoT device expansion</li>
-                <li>Automated traffic management</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="actions">
-          <button className="btn-primary">View Detailed Roadmap</button>
-          <button className="btn-secondary">Submit Feature Request</button>
-        </div>
-      </div>
+    <div className="mt-10 container mx-auto p-6 max-w-3xl">
+      <Title>Future Work: Urban Analysis with Computer Vision</Title>
+
+      <Section>
+        <p>
+          In future work, we propose a framework for urban analysis using{" "}
+          <Bold>OpenCV-based computer vision models</Bold>
+          to detect cities from <Bold>nighttime satellite imagery</Bold>. The
+          methodology leverages the spatial distribution of{" "}
+          <Bold>night lights</Bold> to estimate urban extent and activity.
+        </p>
+
+        <BreakLine />
+        <SubTitle level={3}>Proposed Pipeline</SubTitle>
+        <UnorderedList>
+          <Li>
+            <Bold>Image Preprocessing</Bold>: denoising, contrast enhancement,
+            and histogram equalization.
+          </Li>
+          <Li>
+            <Bold>Segmentation</Bold>: Otsu’s thresholding and adaptive
+            thresholding to isolate illuminated regions.
+          </Li>
+          <Li>
+            <Bold>Feature Extraction</Bold>: contour analysis and connected
+            component labeling to identify urban areas.
+          </Li>
+          <Li>
+            <Bold>Clustering and Classification</Bold>: K-Means or DBSCAN for
+            grouping, followed by SVM or Random Forest for categorizing regions
+            based on urban intensity.
+          </Li>
+        </UnorderedList>
+
+        <BreakLine />
+        <SubTitle level={3}>Expected Outcomes</SubTitle>
+        <p>
+          This approach is expected to enable{" "}
+          <Bold>quantitative urban mapping</Bold>, enhance{" "}
+          <Bold>smart city planning</Bold>, and provide a scalable framework for{" "}
+          <Bold>real-time monitoring of urban expansion</Bold>, helping planners
+          make informed decisions for overall development.
+        </p>
+      </Section>
     </div>
   );
-};
-
-export default FutureImplementation;
+}

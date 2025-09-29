@@ -86,7 +86,7 @@ export default function Home() {
             route="/data-collection"
           />
           <LinkPage text="Data Visualization" route="/data-visualization" />
-          <LinkPage text="Data Analysis" route="/data-analysis" />
+          <LinkPage text="Data Analysis" route="/data-analytics" />
           <LinkPage
             text="Future Implementation"
             route="/future-implementation"

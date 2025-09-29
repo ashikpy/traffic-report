@@ -1,6 +1,7 @@
 import { BookOpenText } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import { CodeBlock } from "react-code-block";
 
 export function Title({ children }: { children: React.ReactNode }) {
   return <div className="text-4xl leading-12 font-bold">{children}</div>;
@@ -63,7 +64,7 @@ export function SubTitle({
 }
 
 export function UnorderedList({ children }: { children: React.ReactNode }) {
-  return <ul className="list-disc pl-6 space-y-3">{children}</ul>;
+  return <ul className="list-disc pl-6  space-y-3">{children}</ul>;
 }
 
 export function Li({ children }: { children: React.ReactNode }) {
@@ -86,4 +87,34 @@ export function LinkPage({ text, route }: { text: string; route?: string }) {
 
 export function BreakLine() {
   return <hr className="border-t border-stone-700 my-6" />;
+}
+
+export function CodeBlockFormatted({
+  code,
+  language = "python",
+}: {
+  code: string;
+  language?: string;
+}) {
+  return (
+    <CodeBlock code={code} language={language}>
+      <CodeBlock.Code className="overflow-auto bg-black border border-slate-800 my-5 p-6 rounded-xl shadow-lg">
+        <div className="table-row ">
+          <CodeBlock.LineNumber className="table-cell pr-4 text-sm text-gray-500 text-right select-none " />
+
+          <CodeBlock.LineContent className="table-cell">
+            <CodeBlock.Token />
+          </CodeBlock.LineContent>
+        </div>
+      </CodeBlock.Code>
+    </CodeBlock>
+  );
+}
+
+export function InlineCode({ children }: { children: React.ReactNode }) {
+  return (
+    <code className="bg-stone-800 text-white px-2 py-[2px] mx-2 rounded  text-xs">
+      {children}
+    </code>
+  );
 }
