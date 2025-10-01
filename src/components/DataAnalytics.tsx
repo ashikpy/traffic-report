@@ -12,7 +12,7 @@ import {
 
 export default function DataAnalytics() {
   return (
-    <div className="mt-10 container mx-auto p-6 max-w-3xl">
+    <div className="md:mt-10 container mx-auto p-6 max-w-3xl">
       <Title>Data Analytics & Clustering</Title>
 
       <Section>

@@ -10,7 +10,7 @@ import {
 
 export default function FutureImplementation() {
   return (
-    <div className="mt-10 container mx-auto p-6 max-w-3xl">
+    <div className="md:mt-10 container mx-auto p-6 max-w-3xl">
       <Title>Future Work: Urban Analysis with Computer Vision</Title>
 
       <Section>

@@ -1,3 +1,4 @@
+import { Hamburger, Sidebar } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -30,7 +31,7 @@ export default function Navigation() {
     <nav className="container mx-auto p-10">
       <div className="flex items-center justify-between">
         <Link to="/" className="text-lg hover:opacity-80 transition-opacity">
-          Red<span className="font-semibold">Analytics</span>
+          Red<span className="font-semibold text-red-400">Analytics</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -41,7 +42,7 @@ export default function Navigation() {
               {item.label === "Report" ? (
                 <Link
                   to={item.path}
-                  className={`px-4 py-2 rounded-md bg-red-100 text-black hover:bg-red-200 transition-colors ${
+                  className={`px-4 py-2 rounded-md bg-red-400 text-white hover:bg-red-200 transition-colors ${
                     isActiveLink(item.path) ? "font-semibold" : ""
                   }`}
                 >
@@ -62,27 +63,7 @@ export default function Navigation() {
         </ul>
 
         {/* Hamburger Menu Button */}
-        <button
-          onClick={toggleMenu}
-          className="xl:hidden flex flex-col items-center justify-center w-8 h-8 space-y-1.5 hover:opacity-70 transition-opacity"
-          aria-label="Toggle navigation menu"
-        >
-          <span
-            className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${
-              isMenuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          ></span>
-          <span
-            className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${
-              isMenuOpen ? "opacity-0" : ""
-            }`}
-          ></span>
-          <span
-            className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${
-              isMenuOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          ></span>
-        </button>
+        <Sidebar onClick={toggleMenu} className="xl:hidden cusor-pointer" />
       </div>
 
       {/* Mobile Menu Overlay */}
