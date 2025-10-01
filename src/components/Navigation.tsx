@@ -1,4 +1,4 @@
-import { Hamburger, Sidebar } from "lucide-react";
+import { Sidebar } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
