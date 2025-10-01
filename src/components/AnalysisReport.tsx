@@ -150,7 +150,7 @@ export default function AnalysisReport() {
         </p>
         <SubTitle level={3}>DBSCAN</SubTitle>
         <div className="md:flex gap-4 mt-5">
-          <img src="/dbdb.png" alt="" className="my-10 md:w-1/2" />
+          <img src="/dbdb.png" alt="" className="my-10 md:my-0 md:w-1/2" />
           <div className="md:w-1/2 space-y-2.5">
             <UnorderedList>
               <Li>
@@ -206,9 +206,9 @@ export default function AnalysisReport() {
             country.
           </p>
         </div>
-        <div className="md:flex gap-10">
+        <div className="md:flex gap-8">
           <img src="/Kerala.png" className="md:w-1/2" alt="" />
-          <p className="md:w-1/2 mt-8">
+          <p className="md:w-1/2 mt-8 md:mt-0">
             <Bold>Notable Exception :</Bold> Kerala stands out with a more
             widespread and evenly distributed traffic light network across both
             cities and semi urban areas.

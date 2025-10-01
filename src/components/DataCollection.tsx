@@ -1,10 +1,7 @@
 import {
-  Bold,
   BreakLine,
   CodeBlockFormatted,
   Li,
-  LinkPage,
-  MutedLink,
   Section,
   SubTitle,
   Title,

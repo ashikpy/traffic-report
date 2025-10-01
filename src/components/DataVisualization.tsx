@@ -7,7 +7,6 @@ import {
   SubTitle,
   Title,
   UnorderedList,
-  InlineCode,
 } from "./utils/Formatters";
 
 export default function DataVisualization() {
