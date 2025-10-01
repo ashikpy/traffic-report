@@ -33,7 +33,7 @@ export default function AnalysisReport() {
           <img
             src="working-flow.png"
             alt=""
-            className="md:w-1/2 my-10 md:mb-0 rounded-md"
+            className="md:w-1/2 my-10 md:my-0 rounded-md"
           />
           <UnorderedList>
             <Li className="text-lg font-semibold">City Name & Query Input</Li>
