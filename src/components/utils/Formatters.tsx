@@ -67,8 +67,14 @@ export function UnorderedList({ children }: { children: React.ReactNode }) {
   return <ul className="list-disc pl-6  space-y-3">{children}</ul>;
 }
 
-export function Li({ children }: { children: React.ReactNode }) {
-  return <li className="pl-1">{children}</li>;
+export function Li({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return <li className={`${className} pl-1`}>{children}</li>;
 }
 
 export function LinkPage({ text, route }: { text: string; route?: string }) {
@@ -100,7 +106,7 @@ export function CodeBlockFormatted({
     <CodeBlock code={code} language={language}>
       <CodeBlock.Code className="overflow-auto bg-black border border-slate-800 my-5 p-6 rounded-xl shadow-lg">
         <div className="table-row ">
-          <CodeBlock.LineNumber className="table-cell pr-4 text-sm text-gray-500 text-right select-none " />
+          <CodeBlock.LineNumber className=" table-cell pr-4 text-sm text-gray-500 text-right select-none " />
 
           <CodeBlock.LineContent className="table-cell">
             <CodeBlock.Token />

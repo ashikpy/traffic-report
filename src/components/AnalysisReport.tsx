@@ -6,7 +6,6 @@ import {
   SubTitle,
   Title,
   UnorderedList,
-  InlineCode,
   CodeBlockFormatted,
 } from "./utils/Formatters";
 
@@ -30,36 +29,52 @@ export default function AnalysisReport() {
         <CodeBlockFormatted language="bash" code={codes[0]} />
         <BreakLine />
         <SubTitle level={3}>Working Flow</SubTitle>
-        <div className="flex gap-4 ">
-          <img src="working-flow.png" alt="" className="w-1/2 rounded-md" />
+        <div className=" md:flex  gap-4 ">
+          <img
+            src="working-flow.png"
+            alt=""
+            className="md:w-1/2 my-10 md:mb-0 rounded-md"
+          />
           <UnorderedList>
-            <Li>City Name & Query Input</Li>
-            <p>
+            <Li className="text-lg font-semibold">City Name & Query Input</Li>
+            <p className="!leading-6">
               User provides a City Name and a Query specifying the required
               data.
             </p>
-            <Li>API Fetch & OSM Data Retrieval</Li>
-            <p>
+            <Li className="text-lg font-semibold">
+              API Fetch & OSM Data Retrieval
+            </Li>
+            <p className="!leading-6">
               System performs an API Fetch to retrieve geospatial data from
               OpenStreetMap (OSM).
             </p>
-            <Li>Data Response & Abstraction</Li>
+            <Li className="text-lg font-semibold">
+              Data Response & Abstraction
+            </Li>
             <p>GeoJSON Data Response is received.</p>
-            <p>
+            <p className="!leading-6">
               Data is converted through Abstraction to CSV for simplified
               analysis.
             </p>
-            <Li>Visualization of Traffic Light Coordinates</Li>
-            <p>
+            <Li className="text-lg font-semibold">
+              Visualization of Traffic Light Coordinates
+            </Li>
+            <p className="!leading-6">
               Processed data is visualized to highlight traffic light positions.
             </p>
           </UnorderedList>
         </div>
         <p>Multiple Visualization Outputs</p>
         <UnorderedList>
-          <Li>Scatter Plot – shows individual traffic light points.</Li>
-          <Li>Bounding Box Visualization – highlights coverage area.</Li>
-          <Li>Heat Map – illustrates density and concentration.</Li>
+          <Li>
+            <Bold>Scatter Plot</Bold> – shows individual traffic light points.
+          </Li>
+          <Li>
+            <Bold>Bounding Box Visualization</Bold> - highlights coverage area.
+          </Li>
+          <Li>
+            <Bold>Heat Map</Bold> – illustrates density and concentration.
+          </Li>
         </UnorderedList>
         <BreakLine />
         <SubTitle level={2}>Visualization</SubTitle>
@@ -77,10 +92,12 @@ export default function AnalysisReport() {
           </Li>
         </UnorderedList>
         <p>
-          Let us Have a close look at the states which have a bigger traffic
-          density
+          <Bold>
+            Let us Have a close look at the states which have a bigger traffic
+            density
+          </Bold>
         </p>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
           <img src="/Telugana.png" alt="" className="h-full aspect-video" />
           <img src="/Maharastra.png" alt="" className="h-full aspect-video" />
           <img src="/Karnataka.png" alt="" className="h-full aspect-video" />
@@ -91,30 +108,36 @@ export default function AnalysisReport() {
             As we can see in these states, there are only certain regions (city
             areas) with high traffic density.
           </li>
-          <li>
-            Fig 1.1 - Only Hyderabad is dense with Traffic Lights in whole
-            Telangana
-          </li>
-          <li>
-            Fig 1.2 - Only Chennai is dense with Traffic Lights in whole Tamil
-            Nadu
-          </li>
-          <li>
-            Fig 1.3 - Only Bangalore is dense with Traffic Lights in whole
-            Karnataka
-          </li>
-          <li>
-            Fig 1.4 - Only Mumbai is dense with Traffic Lights in whole
-            Maharashtra
-          </li>
+          <UnorderedList>
+            <li>
+              Fig 1.1 - Only Hyderabad is dense with Traffic Lights in whole
+              Telangana
+            </li>
+            <li>
+              Fig 1.2 - Only Chennai is dense with Traffic Lights in whole Tamil
+              Nadu
+            </li>
+            <li>
+              Fig 1.3 - Only Bangalore is dense with Traffic Lights in whole
+              Karnataka
+            </li>
+            <li>
+              Fig 1.4 - Only Mumbai is dense with Traffic Lights in whole
+              Maharashtra
+            </li>
+          </UnorderedList>
+        </UnorderedList>
+        <UnorderedList>
           <li>
             ALl the collect data has been saved in the form of CSV as shown
           </li>
         </UnorderedList>
         <BreakLine />
-        <SubTitle level={3}>2. Heat Map</SubTitle>We use clustering to identify
-        geographically diverse regions of traffic lights and analyze variations
-        in their density across regions.
+        <SubTitle level={3}>2. Heat Map</SubTitle>
+        <p>
+          We use clustering to identify geographically diverse regions of
+          traffic lights and analyze variations in their density across regions.
+        </p>
         <img src="/india-heatmap.png" alt="" />
         <p>
           From the heat map analysis, it is quite eminent that as compared to
@@ -126,26 +149,33 @@ export default function AnalysisReport() {
           traffic lights and analyze variations in their density across regions.
         </p>
         <SubTitle level={3}>DBSCAN</SubTitle>
-        <div className="flex gap-10 mt-5">
-          <img src="/dbdb.png" alt="" className="w-1/2" />
-          <div className="w-1/2 space-y-2.5">
-            <p>
-              DBSCAN is better than others because it finds clusters of{" "}
-              <Bold>any shape</Bold>, doesn’t need the number of clusters
-              beforehand, and can **detect noise/outliers** effectively.
-            </p>
-            <p>
-              K-Means fails with non-spherical clusters and outliers, while
-              hierarchical methods are less scalable.
-            </p>
+        <div className="md:flex gap-4 mt-5">
+          <img src="/dbdb.png" alt="" className="my-10 md:w-1/2" />
+          <div className="md:w-1/2 space-y-2.5">
+            <UnorderedList>
+              <Li>
+                DBSCAN is better than others because it finds clusters of{" "}
+                <Bold>any shape</Bold>, doesn’t need the number of clusters
+                beforehand, and can <Bold>detect noise/outliers</Bold>{" "}
+                effectively.
+              </Li>
+              <Li>
+                K-Means fails with non-spherical clusters and outliers, while
+                hierarchical methods are less scalable.
+              </Li>
+            </UnorderedList>
           </div>
         </div>
         <BreakLine />
         <SubTitle level={3}>CLI Statistics Output</SubTitle>
         <CodeBlockFormatted language="bash" code={codes[1]} />
         <UnorderedList>
-          <Li>Biggest Cluster - Cluster 8 (Mumbai)</Li>
-          <Li>Biggest Bounding Box - Cluster 0 (Kerala) </Li>
+          <Li>
+            <Bold>Biggest Cluster</Bold> - Cluster 8 (Mumbai)
+          </Li>
+          <Li>
+            <Bold>Biggest Bounding Box</Bold> - Cluster 0 (Kerala){" "}
+          </Li>
         </UnorderedList>
         <BreakLine />
         <SubTitle level={3}>Population vs Traffic Density</SubTitle>
@@ -159,27 +189,32 @@ export default function AnalysisReport() {
           that traffic light signals are far less widespread, indicating gaps in
           signal coverage.
         </p>
+        <BreakLine />
         <SubTitle level={2}>Conclusion</SubTitle>
-        <p>
-          1. Urban-Centric Infrastructure : traffic light systems in India are
-          heavily concentrated in cities.
-        </p>
-        <p>
-          2. Limited Geographic Coverage : signals are not widely distributed
-          across rural and semi-urban areas.
-        </p>
-        <p>
-          3. Regional Disparities : South India exhibits higher traffic light
-          density compared to the northern regions of our country.
-        </p>
-        <div className="flex gap-10">
-          <img src="/Kerala.png" className="w-1/2" alt="" />
-          <p className="w-1/2">
-            Notable Exception : Kerala stands out with a more widespread and
-            evenly distributed traffic light network across both cities and semi
-            urban areas.
+        <div className="space-y-3 ml-4">
+          <p>
+            <Bold>1. Urban-Centric Infrastructure :</Bold> traffic light systems
+            in India are heavily concentrated in cities.
+          </p>
+          <p>
+            <Bold>2. Limited Geographic Coverage :</Bold> signals are not widely
+            distributed across rural and semi-urban areas.
+          </p>
+          <p>
+            <Bold>3. Regional Disparities :</Bold> South India exhibits higher
+            traffic light density compared to the northern regions of our
+            country.
           </p>
         </div>
+        <div className="md:flex gap-10">
+          <img src="/Kerala.png" className="md:w-1/2" alt="" />
+          <p className="md:w-1/2 mt-8">
+            <Bold>Notable Exception :</Bold> Kerala stands out with a more
+            widespread and evenly distributed traffic light network across both
+            cities and semi urban areas.
+          </p>
+        </div>
+        <BreakLine />
       </Section>
     </div>
   );
