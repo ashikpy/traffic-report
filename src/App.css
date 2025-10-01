@@ -18,4 +18,5 @@ p {
 pre span,
 code {
   font-family: "Space Mono", monospace !important;
+  font-size: 12px;
 }
