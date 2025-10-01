@@ -179,7 +179,7 @@ export default function AnalysisReport() {
         </UnorderedList>
         <BreakLine />
         <SubTitle level={3}>Population vs Traffic Density</SubTitle>
-        <div className="flex gap-10 mt-10">
+        <div className="md:flex gap-10 mt-10">
           <img src="/night-light.jpeg" alt="" className="w-full" />
           <img src="/india-plain.png" alt="" className="w-full object-cover" />
         </div>
