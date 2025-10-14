@@ -9,6 +9,7 @@ import {
   CodeBlockFormatted,
 } from "./utils/Formatters";
 import NextPageNavigation from "./NextPageNavigation";
+import ClickableImage from "./ClickableImage";
 
 export default function AnalysisReport() {
   return (
@@ -84,7 +85,11 @@ export default function AnalysisReport() {
           Visualization helps to understand the distributions and here we used
           it to analyze the geographical density of traffic signals in India.
         </p>
-        <img src="/India.png" className="rounded-lg" />
+        <ClickableImage 
+          src="/India.png" 
+          alt="Traffic Light Distribution across India" 
+          className="rounded-lg" 
+        />
         <UnorderedList>
           <Li>In India, Traffic Lights signals are only dense in cities</Li>
           <Li>
@@ -99,10 +104,10 @@ export default function AnalysisReport() {
           </Bold>
         </p>
         <div className="grid md:grid-cols-2 gap-5">
-          <img src="/Telugana.png" alt="" className="h-full aspect-video" />
-          <img src="/Maharastra.png" alt="" className="h-full aspect-video" />
-          <img src="/Karnataka.png" alt="" className="h-full aspect-video" />
-          <img src="/Tamilnadu.png" alt="" className="h-full aspect-video" />
+          <ClickableImage src="/Telugana.png" alt="Traffic Light Distribution in Telangana" className="h-full aspect-video" />
+          <ClickableImage src="/Maharastra.png" alt="Traffic Light Distribution in Maharashtra" className="h-full aspect-video" />
+          <ClickableImage src="/Karnataka.png" alt="Traffic Light Distribution in Karnataka" className="h-full aspect-video" />
+          <ClickableImage src="/Tamilnadu.png" alt="Traffic Light Distribution in Tamil Nadu" className="h-full aspect-video" />
         </div>
         <UnorderedList>
           <li>
@@ -139,7 +144,10 @@ export default function AnalysisReport() {
           We use clustering to identify geographically diverse regions of
           traffic lights and analyze variations in their density across regions.
         </p>
-        <img src="/india-heatmap.png" alt="" />
+        <ClickableImage 
+          src="/india-heatmap.png" 
+          alt="Traffic Light Density Heatmap of India" 
+        />
         <p>
           From the heat map analysis, it is quite eminent that as compared to
           North India, South India has higher traffic signal density.
@@ -151,7 +159,11 @@ export default function AnalysisReport() {
         </p>
         <SubTitle level={3}>DBSCAN</SubTitle>
         <div className="md:flex gap-4 mt-5">
-          <img src="/dbdb.png" alt="" className="my-10 md:my-0 md:w-1/2" />
+          <ClickableImage 
+            src="/dbdb.png" 
+            alt="DBSCAN Clustering Analysis" 
+            className="my-10 md:my-0 md:w-1/2" 
+          />
           <div className="md:w-1/2 space-y-2.5">
             <UnorderedList>
               <Li>
@@ -181,8 +193,16 @@ export default function AnalysisReport() {
         <BreakLine />
         <SubTitle level={3}>Population vs Traffic Density</SubTitle>
         <div className="md:flex gap-10 mt-10">
-          <img src="/night-light.jpeg" alt="" className="w-full" />
-          <img src="/india-plain.png" alt="" className="w-full object-cover" />
+          <ClickableImage 
+            src="/night-light.jpeg" 
+            alt="India Night Light Satellite Image showing Population Density" 
+            className="w-full" 
+          />
+          <ClickableImage 
+            src="/india-plain.png" 
+            alt="India Traffic Light Distribution Map" 
+            className="w-full object-cover" 
+          />
         </div>
         <p>
           By comparison, it is clear that while the night lights imagery
@@ -208,7 +228,11 @@ export default function AnalysisReport() {
           </p>
         </div>
         <div className="md:flex gap-8">
-          <img src="/Kerala.png" className="md:w-1/2" alt="" />
+          <ClickableImage 
+            src="/Kerala.png" 
+            alt="Traffic Light Distribution in Kerala - Notable Exception" 
+            className="md:w-1/2" 
+          />
           <p className="md:w-1/2 mt-8 md:mt-0">
             <Bold>Notable Exception :</Bold> Kerala stands out with a more
             widespread and evenly distributed traffic light network across both

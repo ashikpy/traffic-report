@@ -10,6 +10,7 @@ import {
   UnorderedList,
 } from "./utils/Formatters";
 import NextPageNavigation from "./NextPageNavigation";
+import ClickableImage from "./ClickableImage";
 
 export default function Home() {
   return (
@@ -98,10 +99,10 @@ export default function Home() {
         <SubTitle level={3}>Authors</SubTitle>
         <div className="space-y-5 md:space-y-0 md:flex  items-center gap-10 mt-4 ">
           <div className="flex  gap-4">
-            <img
+            <ClickableImage
               src="/ash.jpeg"
-              alt=""
-              className="size-24 border-2 rounded-full p-1 "
+              alt="Ashik D. - Analysis Script Author"
+              className="size-24 border-2 rounded-full p-1"
             />
             <div className="mt-2">
               <p className="!text-xl font-semibold">Ashik D.</p>
@@ -110,10 +111,10 @@ export default function Home() {
             </div>
           </div>
           <div className="flex  gap-4">
-            <img
+            <ClickableImage
               src="/adithi.JPG"
-              alt=""
-              className="size-24 border-2 rounded-full p-1 "
+              alt="Adithi S. - Analysis Report Author"
+              className="size-24 border-2 rounded-full p-1"
             />
             <div className="mt-2">
               <p className="!text-xl font-semibold">Adithi S.</p>
