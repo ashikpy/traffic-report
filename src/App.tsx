@@ -6,11 +6,13 @@ import DataVisualization from "./components/DataVisualization";
 import DataAnalytics from "./components/DataAnalytics";
 import FutureImplementation from "./components/FutureImplementation";
 import AnalysisReport from "./components/AnalysisReport";
+import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app text-white">
         <Navigation />
         <main className="main-content">
