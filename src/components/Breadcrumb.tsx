@@ -19,16 +19,14 @@ export default function Breadcrumb() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Don't show breadcrumb on home page
-  if (currentPath === "/") {
-    return null;
-  }
+  const breadcrumbs: BreadcrumbItem[] = [];
 
-  const breadcrumbs: BreadcrumbItem[] = [{ label: "Home", path: "/" }];
+  // Always add Home to breadcrumbs
+  breadcrumbs.push({ label: "Home", path: "/" });
 
-  // Add current page to breadcrumbs
+  // Add current page to breadcrumbs if not home page
   const currentPageLabel = routeMap[currentPath];
-  if (currentPageLabel) {
+  if (currentPath !== "/" && currentPageLabel) {
     breadcrumbs.push({ label: currentPageLabel, path: currentPath });
   }
 
