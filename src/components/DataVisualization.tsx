@@ -8,6 +8,7 @@ import {
   Title,
   UnorderedList,
 } from "./utils/Formatters";
+import NextPageNavigation from "./NextPageNavigation";
 
 export default function DataVisualization() {
   return (
@@ -170,6 +171,7 @@ fig = px.density_map(
           smart mobility solutions.
         </p>
       </Section>
+      <NextPageNavigation currentPath="/data-visualization" />
     </div>
   );
 }

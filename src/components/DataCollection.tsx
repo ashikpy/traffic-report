@@ -8,6 +8,7 @@ import {
   UnorderedList,
   InlineCode,
 } from "./utils/Formatters";
+import NextPageNavigation from "./NextPageNavigation";
 
 export default function DataCollection() {
   return (
@@ -141,6 +142,7 @@ export default function DataCollection() {
           applications.
         </p>
       </Section>
+      <NextPageNavigation currentPath="/data-collection" />
     </div>
   );
 }

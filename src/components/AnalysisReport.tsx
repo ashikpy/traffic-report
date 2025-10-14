@@ -8,6 +8,7 @@ import {
   UnorderedList,
   CodeBlockFormatted,
 } from "./utils/Formatters";
+import NextPageNavigation from "./NextPageNavigation";
 
 export default function AnalysisReport() {
   return (
@@ -216,6 +217,7 @@ export default function AnalysisReport() {
         </div>
         <BreakLine />
       </Section>
+      <NextPageNavigation currentPath="/analysis-report" />
     </div>
   );
 }

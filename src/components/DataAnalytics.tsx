@@ -9,6 +9,7 @@ import {
   UnorderedList,
   InlineCode,
 } from "./utils/Formatters";
+import NextPageNavigation from "./NextPageNavigation";
 
 export default function DataAnalytics() {
   return (
@@ -139,6 +140,7 @@ export default function DataAnalytics() {
           planning, and city-wide infrastructure optimization.
         </p>
       </Section>
+      <NextPageNavigation currentPath="/data-analytics" />
     </div>
   );
 }

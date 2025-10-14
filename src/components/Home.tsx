@@ -9,6 +9,7 @@ import {
   Title,
   UnorderedList,
 } from "./utils/Formatters";
+import NextPageNavigation from "./NextPageNavigation";
 
 export default function Home() {
   return (
@@ -122,6 +123,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
+      <NextPageNavigation currentPath="/" />
     </div>
   );
 }

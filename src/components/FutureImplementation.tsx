@@ -7,6 +7,7 @@ import {
   Title,
   UnorderedList,
 } from "./utils/Formatters";
+import NextPageNavigation from "./NextPageNavigation";
 
 export default function FutureImplementation() {
   return (
@@ -54,6 +55,7 @@ export default function FutureImplementation() {
           make informed decisions for overall development.
         </p>
       </Section>
+      <NextPageNavigation currentPath="/future-implementation" />
     </div>
   );
 }

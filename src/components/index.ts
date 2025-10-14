@@ -6,3 +6,6 @@ export { default as DataAnalytics } from "./DataAnalytics";
 export { default as FutureImplementation } from "./FutureImplementation";
 export { default as AnalysisReport } from "./AnalysisReport";
 export { default as ScrollToTop } from "./ScrollToTop";
+export { default as NotFound } from "./NotFound";
+export { default as Breadcrumb } from "./Breadcrumb";
+export { default as NextPageNavigation } from "./NextPageNavigation";
