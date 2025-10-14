@@ -32,7 +32,10 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-xl font-semibold hover:opacity-80 transition-opacity">
+          <Link
+            to="/"
+            className="text-xl font-semibold hover:opacity-80 transition-opacity"
+          >
             Red<span className="text-red-400">Analytics</span>
           </Link>
 
@@ -43,9 +46,7 @@ export default function Navigation() {
                 <Link
                   to={item.path}
                   className={`text-sm font-medium transition-colors hover:text-red-400 ${
-                    isActiveLink(item.path) 
-                      ? "text-red-400" 
-                      : "text-gray-300"
+                    isActiveLink(item.path) ? "text-red-400" : "text-gray-300"
                   }`}
                 >
                   {item.label}

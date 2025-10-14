@@ -7,7 +7,11 @@ interface ClickableImageProps {
   className?: string;
 }
 
-export default function ClickableImage({ src, alt, className = "" }: ClickableImageProps) {
+export default function ClickableImage({
+  src,
+  alt,
+  className = "",
+}: ClickableImageProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -20,7 +24,7 @@ export default function ClickableImage({ src, alt, className = "" }: ClickableIm
     setZoom(1);
     setPosition({ x: 0, y: 0 });
   };
-  
+
   const closeModal = () => {
     setIsModalOpen(false);
     setZoom(1);
@@ -28,11 +32,11 @@ export default function ClickableImage({ src, alt, className = "" }: ClickableIm
   };
 
   const zoomIn = () => {
-    setZoom(prev => Math.min(prev * 1.5, 5));
+    setZoom((prev) => Math.min(prev * 1.5, 5));
   };
 
   const zoomOut = () => {
-    setZoom(prev => Math.max(prev / 1.5, 0.5));
+    setZoom((prev) => Math.max(prev / 1.5, 0.5));
   };
 
   const resetZoom = () => {
@@ -42,19 +46,11 @@ export default function ClickableImage({ src, alt, className = "" }: ClickableIm
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (zoom > 1) {
+      e.preventDefault();
       setIsDragging(true);
       setDragStart({
         x: e.clientX - position.x,
-        y: e.clientY - position.y
-      });
-    }
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging && zoom > 1) {
-      setPosition({
-        x: e.clientX - dragStart.x,
-        y: e.clientY - dragStart.y
+        y: e.clientY - position.y,
       });
     }
   };
@@ -66,39 +62,65 @@ export default function ClickableImage({ src, alt, className = "" }: ClickableIm
   const handleWheel = (e: React.WheelEvent) => {
     e.preventDefault();
     const delta = e.deltaY > 0 ? -0.1 : 0.1;
-    setZoom(prev => Math.max(0.5, Math.min(5, prev + delta)));
+    setZoom((prev) => Math.max(0.5, Math.min(5, prev + delta)));
   };
 
-  // Keyboard controls
+  // Keyboard controls and global mouse events
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isModalOpen) return;
-      
+
       switch (e.key) {
-        case 'Escape':
+        case "Escape":
           closeModal();
           break;
-        case '+':
-        case '=':
+        case "+":
+        case "=":
           e.preventDefault();
           zoomIn();
           break;
-        case '-':
+        case "-":
           e.preventDefault();
           zoomOut();
           break;
-        case '0':
+        case "0":
           e.preventDefault();
           resetZoom();
           break;
       }
     };
 
+    const handleGlobalMouseMove = (e: MouseEvent) => {
+      if (isDragging && zoom > 1) {
+        e.preventDefault();
+        const newX = e.clientX - dragStart.x;
+        const newY = e.clientY - dragStart.y;
+
+        requestAnimationFrame(() => {
+          setPosition({ x: newX, y: newY });
+        });
+      }
+    };
+
+    const handleGlobalMouseUp = () => {
+      setIsDragging(false);
+    };
+
     if (isModalOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-      return () => window.removeEventListener('keydown', handleKeyDown);
+      window.addEventListener("keydown", handleKeyDown);
+
+      if (isDragging) {
+        window.addEventListener("mousemove", handleGlobalMouseMove);
+        window.addEventListener("mouseup", handleGlobalMouseUp);
+      }
+
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+        window.removeEventListener("mousemove", handleGlobalMouseMove);
+        window.removeEventListener("mouseup", handleGlobalMouseUp);
+      };
     }
-  }, [isModalOpen]);
+  }, [isModalOpen, isDragging, dragStart, zoom]);
 
   return (
     <>
@@ -118,7 +140,7 @@ export default function ClickableImage({ src, alt, className = "" }: ClickableIm
             className="absolute inset-0 cursor-pointer"
             onClick={closeModal}
           />
-          
+
           {/* Modal Content */}
           <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
             {/* Control Panel */}
@@ -169,22 +191,23 @@ export default function ClickableImage({ src, alt, className = "" }: ClickableIm
               ref={imageRef}
               src={src}
               alt={alt}
-              className={`max-w-none transition-transform duration-200 ${
-                zoom > 1 ? 'cursor-grab' : 'cursor-zoom-in'
-              } ${isDragging ? 'cursor-grabbing' : ''}`}
+              className={`max-w-none select-none ${
+                zoom > 1 ? "cursor-grab" : "cursor-zoom-in"
+              } ${isDragging ? "cursor-grabbing" : ""}`}
               style={{
-                transform: `scale(${zoom}) translate(${position.x / zoom}px, ${position.y / zoom}px)`,
-                maxHeight: '90vh',
-                maxWidth: '90vw'
+                transform: `scale(${zoom}) translate(${position.x / zoom}px, ${
+                  position.y / zoom
+                }px)`,
+                maxHeight: "90vh",
+                maxWidth: "90vw",
+                willChange: isDragging ? "transform" : "auto",
               }}
               onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
               onWheel={handleWheel}
               onClick={(e) => {
                 e.stopPropagation();
-                if (zoom === 1) {
+                if (zoom === 1 && !isDragging) {
                   zoomIn();
                 }
               }}

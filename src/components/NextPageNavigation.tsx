@@ -15,48 +15,51 @@ const pages: PageNavItem[] = [
   {
     title: "Home",
     path: "/",
-    description: "Project overview and introduction"
+    description: "Project overview and introduction",
   },
   {
     title: "Data Collection",
     path: "/data-collection",
-    description: "Learn how we collect traffic signal data"
+    description: "Learn how we collect traffic signal data",
   },
   {
     title: "Data Visualization",
     path: "/data-visualization",
-    description: "Explore our visualization techniques"
+    description: "Explore our visualization techniques",
   },
   {
     title: "Data Analytics",
     path: "/data-analytics",
-    description: "Discover our clustering and analysis methods"
+    description: "Discover our clustering and analysis methods",
   },
   {
     title: "Future Implementation",
     path: "/future-implementation",
-    description: "See our proposed future enhancements"
+    description: "See our proposed future enhancements",
   },
   {
     title: "Analysis Report",
     path: "/analysis-report",
-    description: "Read our comprehensive findings"
-  }
+    description: "Read our comprehensive findings",
+  },
 ];
 
-export default function NextPageNavigation({ currentPath }: NextPageNavigationProps) {
-  const currentIndex = pages.findIndex(page => page.path === currentPath);
-  
+export default function NextPageNavigation({
+  currentPath,
+}: NextPageNavigationProps) {
+  const currentIndex = pages.findIndex((page) => page.path === currentPath);
+
   // Don't show navigation if we can't find the current page
   if (currentIndex === -1) return null;
 
   const previousPage = currentIndex > 0 ? pages[currentIndex - 1] : null;
-  const nextPage = currentIndex < pages.length - 1 ? pages[currentIndex + 1] : null;
+  const nextPage =
+    currentIndex < pages.length - 1 ? pages[currentIndex + 1] : null;
 
   return (
     <div className="container mx-auto px-6 py-8 md:py-12 max-w-3xl">
       <hr className="border-t border-gray-700 mb-6 md:mb-8" />
-      
+
       <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-6">
         {/* Previous Page */}
         <div className="flex justify-start">
@@ -65,12 +68,14 @@ export default function NextPageNavigation({ currentPath }: NextPageNavigationPr
               to={previousPage.path}
               className="group flex items-start gap-3 p-3 md:p-4 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors w-full md:max-w-sm"
             >
-              <ArrowLeft 
-                size={18} 
-                className="text-gray-400 group-hover:text-red-400 transition-colors mt-1 flex-shrink-0" 
+              <ArrowLeft
+                size={18}
+                className="text-gray-400 group-hover:text-red-400 transition-colors mt-1 flex-shrink-0"
               />
               <div className="min-w-0 flex-1">
-                <div className="text-xs md:text-sm text-gray-400 mb-1">Previous</div>
+                <div className="text-xs md:text-sm text-gray-400 mb-1">
+                  Previous
+                </div>
                 <div className="font-semibold text-white group-hover:text-red-400 transition-colors text-sm md:text-base leading-tight">
                   {previousPage.title}
                 </div>
@@ -92,7 +97,9 @@ export default function NextPageNavigation({ currentPath }: NextPageNavigationPr
               className="group flex items-start gap-3 p-3 md:p-4 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors w-full md:max-w-sm md:text-right"
             >
               <div className="min-w-0 flex-1 md:order-2">
-                <div className="text-xs md:text-sm text-gray-400 mb-1">Next</div>
+                <div className="text-xs md:text-sm text-gray-400 mb-1">
+                  Next
+                </div>
                 <div className="font-semibold text-white group-hover:text-red-400 transition-colors text-sm md:text-base leading-tight">
                   {nextPage.title}
                 </div>
@@ -100,9 +107,9 @@ export default function NextPageNavigation({ currentPath }: NextPageNavigationPr
                   {nextPage.description}
                 </div>
               </div>
-              <ArrowRight 
-                size={18} 
-                className="text-gray-400 group-hover:text-red-400 transition-colors mt-1 flex-shrink-0 md:order-1" 
+              <ArrowRight
+                size={18}
+                className="text-gray-400 group-hover:text-red-400 transition-colors mt-1 flex-shrink-0 md:order-1"
               />
             </Link>
           ) : (
@@ -120,7 +127,7 @@ export default function NextPageNavigation({ currentPath }: NextPageNavigationPr
               <div
                 key={index}
                 className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-colors ${
-                  index <= currentIndex ? 'bg-red-400' : 'bg-gray-600'
+                  index <= currentIndex ? "bg-red-400" : "bg-gray-600"
                 }`}
               />
             ))}
